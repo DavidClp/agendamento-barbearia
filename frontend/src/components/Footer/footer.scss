@@ -1,0 +1,168 @@
+$bg-primary: #f2f2f2;
+$bg-secondary: #0f1218;
+$text-color: #212529;
+$text-colorSecondary: #f2f2f2; 
+$main-color: #d61900;
+$text-secondary: #c58422;
+
+@mixin display-flex($direction){
+    display: flex;
+    align-items: center;
+    flex-direction: $direction; 
+}
+
+footer{
+    background: $bg-secondary;
+    color: $text-colorSecondary;
+    @include display-flex(column);
+    justify-content: center;
+    
+    .principal{
+        width: 100%;
+        @include display-flex(row);
+        justify-content: space-between;    
+        padding: 2rem 20%;
+    
+        .logo{
+            @include display-flex(row);
+            img{
+                margin-right: .5rem;
+                width: 3rem;
+            }
+        }
+
+        .text{
+            text-align: center;
+            p{
+                width: 20rem;
+            }
+
+            .icons{
+                padding-top: .6rem;
+                .icon{
+                    margin-right: 1rem;
+                    color: $text-secondary;
+                    font-size: 2rem;
+                    cursor: pointer;
+                    &:hover{
+                        transform: scale(1.1);
+                        color: $main-color;
+                    }
+                }
+            }
+        }
+    }
+
+    .copyright{
+        width: 100%;
+        border-top: 1px solid $main-color;
+        @include display-flex(column);
+        padding: .6rem 0;
+        p{
+            font-weight: 300;
+            a{
+               color: inherit;
+            }
+        }
+    }
+}
+
+// -----  MEDIA QUERIES -----
+@media (max-width: 1280px){
+    footer{
+        .principal{
+            padding: 2rem 10%;
+        }
+        
+    }
+}
+
+@media screen and (max-width: 768px){
+    footer{
+
+        .principal{
+            @include display-flex(column);
+            gap: 1rem;
+
+            .logo{
+                img{
+                    width: 2rem;
+                }
+                h2{
+                    font-size: 1.3rem;
+                }
+            }
+
+            .text{
+                p{
+                    width: 30rem;
+                } 
+                .icons{
+                    .icon{
+                        font-size: 1.7rem;
+                    }
+                }
+            }
+        }
+
+        .copyright{
+            text-align: center;
+            width: 100%;
+            border-top: 1px solid $main-color;
+            @include display-flex(column);
+            padding: .6rem 0;
+            p{
+                width: 70%;
+                font-size: .7rem;
+                a{
+                   color: inherit;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 440px){
+    footer{
+
+        .principal{
+            @include display-flex(column);
+            gap: 1rem;
+
+            .logo{
+                img{
+                    width: 2rem;
+                }
+                h2{
+                    font-size: 1.3rem;
+                }
+            }
+
+            .text{
+                p{
+                    width: 80vw;
+                } 
+                .icons{
+                    .icon{
+                        font-size: 1.7rem;
+                    }
+                }
+            }
+        }
+
+        .copyright{
+            text-align: center;
+            width: 100%;
+            border-top: 1px solid $main-color;
+            @include display-flex(column);
+            padding: .6rem 0;
+            p{
+                width: 70%;
+                font-size: .7rem;
+                a{
+                   color: inherit;
+                }
+            }
+        }
+    }
+}

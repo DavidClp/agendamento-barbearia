@@ -1,0 +1,85 @@
+$bg-primary: #f2f2f2;
+$bg-secondary: #323946;
+$text-color: #212529;
+$main-color: #d61900;
+$text-secondary: #c58422;
+
+#location{
+   /*  height: 80vh; */
+    background-image: url('../../assets/bg-branca.webp');
+    padding: 5rem 3rem;
+    gap: 4rem;
+    display: flex;
+    flex-direction: row;
+
+    .principal{
+
+        p{
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-left: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        h2{
+           color: $main-color;
+           font-size: 1.6rem;
+           margin-bottom: 1rem;
+        }
+    }
+
+    .extras{
+
+        .barberShop{
+            width: 30rem;
+        }
+
+        h3{
+            color: $main-color;
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin: 1rem ;
+        }
+
+        .listConv{
+            li{
+                display: flex;
+                align-items: center;
+                margin-bottom: 1rem;
+                font-size: 1.2rem;
+                font-weight: 500;
+                
+                .icon{
+                    color: $text-secondary;
+                    font-size: 1.5rem;
+                    margin-right: .5rem;
+                }
+            }
+        }
+    }
+}
+
+/* ------- MEDIA QUERIES -------- */
+@media (max-width: 1370px){
+    #location{
+        flex-direction: column;
+    }
+}
+
+/* ------- MEDIA QUERIES -------- */
+@media (max-width: 850px){
+    #location{
+        .principal{
+            iframe{
+                width: 90vw;
+               
+            }
+        }
+
+        .extras{
+            .barberShop{
+                width: 90vw;
+            }
+        }
+    }
+}

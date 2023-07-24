@@ -1,0 +1,53 @@
+.btnWhatsApp{
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    height: 3.5rem;
+    width: 3.5rem;
+    display: flex;
+    background-color: #4fcf2f;
+    cursor: pointer;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    
+    a{     
+        z-index: 3000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .icon{
+            font-size: 1.7rem;
+            color: white;
+        }
+    }
+
+    &::before{
+        content: '';
+        display: block;
+        position: absolute;
+        border-radius: 50%;
+        left: -20px;
+        right: -20px;
+        top: -20px;
+        bottom: -20px;
+        border: 20px solid #4fcf2f64;
+        animation: animar 1s ease-in infinite;
+        opacity: 0;
+    }
+
+    @keyframes animar {
+        0%{
+            transform: scale(0.5);
+            opacity: 0;
+        }
+        50%{
+            opacity: 1;
+        }
+        100%{
+            ransform: scale(1.0);
+            opacity: 0;
+        }
+    }
+}
