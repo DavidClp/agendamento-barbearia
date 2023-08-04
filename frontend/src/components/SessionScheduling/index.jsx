@@ -24,18 +24,18 @@ const SessionScheduling = ({changeContainer}) => {
     
     const sendToAPI = async (data) => {
         try{
-          console.log(data)
+          const token = localStorage.getItem('token')
           const response = await fetch('http://localhost:8080/api/agendamentos',{
             method: 'post',
             headers:{
               'Content-Type': 'application/json',
+              'token': token
             },
             body: JSON.stringify(data)
           })
     
           const dados = await response.json()
-          /* handleClick('menu') */
-          console.log(dados)
+          handleClick('menu')
     
         } catch(error){
           console.error('Erro ao enviar dados para a API:', error);

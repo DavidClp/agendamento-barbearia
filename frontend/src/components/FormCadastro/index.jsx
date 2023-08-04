@@ -13,20 +13,33 @@ const FormCadastro = ({changeContainer}) => {
     senha: '',
   });
 
-  const handleChange = (event) =>{
+  const handleChange = (event) => {
     const {name, value} = event.target;
     setFormData({...formData, [name]: value});
   }
 
   const handleSubmit = (event) =>{
     event.preventDefault();
-    sendToAPI(formData)
+    checkInputErrors(formData);
+  }
+
+  const checkInputErrors = (data) => {
+    try {
+      Object.keys(data).forEach((item) =>{
+        if(!data[item]){
+          throw item
+        }
+      })
+      
+      sendToAPI(data)
+    } catch (error) {
+      const err = `O campo ${error} esta vazio!`
+      window.alert(err)
+    }
   }
 
   const sendToAPI = async (data) => {
-    console.log(data)
     try{
-
       const response = await fetch('http://localhost:8080/api/usuarios',{
         method: 'post',
         headers:{
@@ -35,12 +48,17 @@ const FormCadastro = ({changeContainer}) => {
         body: JSON.stringify(data)
       })
 
+      if(!response.ok){
+        const errorData = await response.json();
+        throw new Error(errorData.mensagem)
+      }
+
       const dados = await response.json()
       handleClick('menu')
-      console.log(dados)
-
     } catch(error){
-      console.error('Erro ao enviar dados para a API:', error);
+      window.Error();
+      const err = `Erro ao enviar dados para a API: ${error}`
+      window.alert(err)
     }
   }
 
